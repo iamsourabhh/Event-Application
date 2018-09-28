@@ -3,7 +3,7 @@ const DEFAULT_STATE = {
   isError: false
 };
 
-const CalendarEventReducer = (state = DEFAULT_STATE, action) => {
+const EventAppReducer = (state = DEFAULT_STATE, action) => {
   const { type } = action;
 
   switch (type) {
@@ -12,4 +12,4 @@ const CalendarEventReducer = (state = DEFAULT_STATE, action) => {
   }
 };
 
-export default CalendarEventReducer;
+export default EventAppReducer;

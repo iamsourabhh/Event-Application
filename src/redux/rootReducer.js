@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import CalendarEventReducer from "../pages/CalendarEvents/CalendarEvents.reducer";
+import EventAppReducer from "../pages/CalendarEvents/EventApp.reducer";
 
 const rootReducer = combineReducers({
-  cal: CalendarEventReducer
+  cal: EventAppReducer
 });
 
 export default rootReducer;

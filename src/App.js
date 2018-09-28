@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import configureStore from "./redux/configureStore";
-import CalendarEvents from "./pages/CalendarEvents/CalendarEvents";
+import EventApp from "./pages/CalendarEvents/EventApp";
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
       <Provider store={configureStore()}>
         <BrowserRouter>
           <React.Fragment>
-            <Route path="/" component={CalendarEvents} />
+            <Route path="/" component={EventApp} />
           </React.Fragment>
         </BrowserRouter>
       </Provider>

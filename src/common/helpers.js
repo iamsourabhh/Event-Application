@@ -13,3 +13,7 @@ export const getTimeFromInteger = i => {
     return "12 PM";
   }
 };
+
+export const daysInMonth = (month, year) => {
+  return new Date(year, month, 0).getDate();
+};

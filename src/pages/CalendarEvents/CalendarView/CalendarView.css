@@ -5,6 +5,8 @@
   border-width: 0.5px;
   padding: 1px;
   border-style: solid;
+  height: 500px;
+  overflow-y: scroll;
 }
 
 .calendar-view-days {
@@ -13,6 +15,7 @@
 
 .calendar-view-timeline {
   flex: 0.94;
+  position: relative;
 }
 
 .timeline-hour-container {
