@@ -1,0 +1,34 @@
+.calendar-view-container {
+  display: flex;
+  margin-top: 2%;
+  border-color: #e0e0e0;
+  border-width: 0.5px;
+  padding: 1px;
+  border-style: solid;
+}
+
+.calendar-view-days {
+  flex: 0.06;
+}
+
+.calendar-view-timeline {
+  flex: 0.94;
+}
+
+.timeline-hour-container {
+  height: 40px;
+}
+
+.timeline-canvas-container {
+  height: 40px;
+  background-color: #fff;
+  border-bottom-color: #e0e0e0;
+  border-bottom-width: 0.5px;
+  border-bottom-style: solid;
+  border-right-color: #e0e0e0;
+  border-right-width: 0.5px;
+  border-right-style: solid;
+  border-left-color: #e0e0e0;
+  border-left-width: 0.5px;
+  border-left-style: solid;
+}
