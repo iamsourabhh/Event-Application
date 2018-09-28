@@ -3,9 +3,9 @@ export const getTimeFromInteger = i => {
     return "";
   }
   if (i < 12) {
-    return i + "am";
+    return i + " AM";
   }
   if (i >= 12 && i < 24) {
-    return i + "pm";
+    return i + " PM";
   }
 };

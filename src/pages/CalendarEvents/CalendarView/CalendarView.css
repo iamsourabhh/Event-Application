@@ -17,8 +17,24 @@
 
 .timeline-hour-container {
   height: 40px;
+  position: relative;
+  border-bottom-color: #fff;
+  border-bottom-width: 0.5px;
+  border-bottom-style: solid;
+  border-right-color: #fff;
+  border-right-width: 0.5px;
+  border-right-style: solid;
+  border-left-color: #fff;
+  border-left-width: 0.5px;
+  border-left-style: solid;
 }
 
+.timeline-hour-text {
+  text-align: center;
+  display: block;
+  top: -8px;
+  position: relative;
+}
 .timeline-canvas-container {
   height: 40px;
   background-color: #fff;

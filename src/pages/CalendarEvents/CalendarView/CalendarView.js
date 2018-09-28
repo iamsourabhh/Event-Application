@@ -33,7 +33,7 @@ export default CalendarView;
 
 const TimeLineHour = ({ hour }) => (
   <div className="timeline-hour-container">
-    <Typography style={{ textAlign: "center" }} variant="body2" color="inherit">
+    <Typography className="timeline-hour-text" variant="body2" color="inherit">
       {hour}
     </Typography>
   </div>
