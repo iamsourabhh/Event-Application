@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 
-const CalendarEvents = () => {
+const CalendarEvents = ({ activeMonth, onChangeMonth }) => {
   return (
     <div style={{ display: "flex" }}>
       <div style={{ flex: 0.1 }}>
@@ -25,14 +25,21 @@ const CalendarEvents = () => {
         </Button>
         <Select
           style={{ marginLeft: 5, width: 100 }}
-          onChange={this.handleChange}
+          value={activeMonth}
+          onChange={e => {
+            onChangeMonth(e.target.value);
+          }}
           inputProps={{
             name: "age",
             id: "age-simple"
           }}
         >
           {months.map(month => {
-            return <MenuItem value={month.value}>{month.name}</MenuItem>;
+            return (
+              <MenuItem key={month.value} value={month.value}>
+                {month.name}
+              </MenuItem>
+            );
           })}
         </Select>
 
@@ -73,6 +80,6 @@ const months = [
 ].map((month, i) => {
   return {
     name: month,
-    value: i
+    value: i + 1
   };
 });

@@ -10,7 +10,9 @@ const CalendarView = () => {
       <div className="calendar-view-container">
         <div className="calendar-view-days">
           {[...Array(24)].map((i, index) => {
-            return <TimeLineHour hour={getTimeFromInteger(index)} />;
+            return (
+              <TimeLineHour key={index} hour={getTimeFromInteger(index)} />
+            );
           })}
         </div>
         <div className="calendar-view-timeline">
@@ -23,7 +25,7 @@ const CalendarView = () => {
             endTIme={"3:30 PM"}
           />
           {[...Array(24)].map((i, index) => {
-            return <TimeLineCanvas />;
+            return <TimeLineCanvas key={index} />;
           })}
         </div>
       </div>
