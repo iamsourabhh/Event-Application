@@ -2,17 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 import Header from "../../components/Header";
 import CalendarView from "./CalendarView/CalendarView";
-import { changeMonth } from "./EventApp.action";
+import { changeDate } from "./EventApp.action";
 
 import "./EventApp.css";
 import CalendarEvents from "./CalendarEvents/CalendarEvents";
 
-const EventApp = ({ month, changeMonth }) => {
+const EventApp = ({ month, changeDate }) => {
   return (
     <React.Fragment>
       <Header />
       <div className="container">
-        <CalendarEvents activeMonth={month} onChangeMonth={changeMonth} />
+        <CalendarEvents
+          activeMonth={month}
+          onChangeDate={changeDate}
+          activeYear=""
+        />
         <div style={{ position: "relative" }}>
           <CalendarView />
         </div>
@@ -28,5 +32,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { changeMonth }
+  { changeDate }
 )(EventApp);

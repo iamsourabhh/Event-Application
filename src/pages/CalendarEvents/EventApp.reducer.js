@@ -4,7 +4,7 @@ const DEFAULT_STATE = {
   loading: true,
   isError: false,
   todaysDate: new Date().toLocaleDateString(),
-  selectedMonth: 1
+  selectedDate: new Date().toLocaleDateString()
 };
 
 const EventAppReducer = (state = DEFAULT_STATE, action) => {
@@ -14,7 +14,7 @@ const EventAppReducer = (state = DEFAULT_STATE, action) => {
     case CHANGE_MONTH:
       return {
         ...state,
-        selectedMonth: payload.month
+        selectedDate: payload.date
       };
     default:
       return state;

@@ -1,10 +1,9 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import MenuItem from "@material-ui/core/MenuItem";
-import Select from "@material-ui/core/Select";
+import TextField from "@material-ui/core/TextField";
 
-const CalendarEvents = ({ activeMonth, onChangeMonth }) => {
+const CalendarEvents = ({ activeMonth, onChangeDate }) => {
   return (
     <div style={{ display: "flex" }}>
       <div style={{ flex: 0.1 }}>
@@ -23,26 +22,20 @@ const CalendarEvents = ({ activeMonth, onChangeMonth }) => {
         <Button style={{ marginLeft: 5 }} color="primary" variant="contained">
           Add Event
         </Button>
-        <Select
-          style={{ marginLeft: 5, width: 100 }}
-          value={activeMonth}
-          onChange={e => {
-            onChangeMonth(e.target.value);
-          }}
-          inputProps={{
-            name: "age",
-            id: "age-simple"
-          }}
-        >
-          {months.map(month => {
-            return (
-              <MenuItem key={month.value} value={month.value}>
-                {month.name}
-              </MenuItem>
-            );
-          })}
-        </Select>
 
+        <TextField
+          onChange={e => {
+            onChangeDate(e.target.value);
+          }}
+          id="date"
+          label="Date"
+          type="date"
+          style={{ marginLeft: 35 }}
+          defaultValue="2017-05-24"
+          InputLabelProps={{
+            shrink: true
+          }}
+        />
         <Button
           color="primary"
           className="navigation-buttons"
@@ -63,23 +56,3 @@ const CalendarEvents = ({ activeMonth, onChangeMonth }) => {
 };
 
 export default CalendarEvents;
-
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
-].map((month, i) => {
-  return {
-    name: month,
-    value: i + 1
-  };
-});

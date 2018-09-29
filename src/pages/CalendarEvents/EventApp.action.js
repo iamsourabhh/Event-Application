@@ -1,9 +1,9 @@
 import { CHANGE_MONTH } from "../../redux/actions/actionTypes";
 
-export const changeMonth = month => {
-  console.log(month);
+export const changeDate = date => {
+  console.log(date);
   return {
     type: CHANGE_MONTH,
-    payload: { month }
+    payload: { date }
   };
 };
