@@ -4,7 +4,12 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
 const CalendarEvents = ({ activeDate, onChangeDate }) => {
-  const dateNumber = new Date(activeDate);
+  const dateNumber = new Date(
+    activeDate
+      .split("/")
+      .reverse()
+      .join("-")
+  );
   return (
     <div style={{ display: "flex" }}>
       <div style={{ flex: 0.1 }}>

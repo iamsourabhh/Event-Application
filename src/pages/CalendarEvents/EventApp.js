@@ -7,13 +7,14 @@ import "./EventApp.css";
 import CalendarEvents from "./CalendarEvents/CalendarEvents";
 
 const EventApp = ({ date, changeDate, eventData }) => {
+  console.log(eventData);
   return (
     <React.Fragment>
       <Header />
       <div className="container">
         <CalendarEvents activeDate={date} onChangeDate={changeDate} />
         <div style={{ position: "relative" }}>
-          <CalendarView />
+          <CalendarView events={eventData} />
         </div>
       </div>
     </React.Fragment>
@@ -23,7 +24,10 @@ const EventApp = ({ date, changeDate, eventData }) => {
 const mapStateToProps = state => {
   return {
     date: state.cal.selectedDate,
-    eventData: state.cal.eventData
+    eventData:
+      state.cal.eventData[state.cal.selectedDate] === undefined
+        ? {}
+        : state.cal.eventData[state.cal.selectedDate]
   };
 };
 export default connect(

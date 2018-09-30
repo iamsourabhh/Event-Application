@@ -4,7 +4,7 @@ import "./CalendarView.css";
 import { getTimeFromInteger } from "../../../common/helpers";
 import EventCard from "../../../components/EventCard/EventCard";
 
-const CalendarView = () => {
+const CalendarView = ({ events }) => {
   return (
     <React.Fragment>
       <div className="calendar-view-container">
@@ -16,14 +16,17 @@ const CalendarView = () => {
           })}
         </div>
         <div className="calendar-view-timeline">
-          <EventCard
-            top={40}
-            height={38}
-            backgroundColor={"#d3d3d3"}
-            eventName={"Event 1"}
-            startTime={"2:30 PM"}
-            endTIme={"3:30 PM"}
-          />
+          {Object.keys(events).map((id, i) => {
+            return (
+              <EventCard
+                key={id}
+                backgroundColor={"#d3d3d3"}
+                eventName={events[id].name}
+                startTime={events[id].startTime}
+                endTime={events[id].endTime}
+              />
+            );
+          })}
           {[...Array(24)].map((i, index) => {
             return <TimeLineCanvas key={index} />;
           })}
