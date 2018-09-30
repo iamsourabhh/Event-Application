@@ -1,19 +1,20 @@
 import React, { Fragment, Component } from "react";
 import Header from "../../components/Header";
 import { connect } from "react-redux";
-import { addEvent } from "./AddEvent.action";
+import { editEvent } from "./EditEvent.action";
 import { Redirect } from "react-router-dom";
 import uuid from "uuid/v4";
 import EventForm from "../../components/EventForm/EventForm";
 
-class AddEvent extends Component {
+class EditEvent extends Component {
   constructor(props) {
     super(props);
+    const eventData = props.selectedDateData[props.match.params.eventId];
     this.state = {
       date: props.match.params.date,
-      startTime: "00:00",
-      endTime: "00:00",
-      eventName: "",
+      startTime: eventData.startTime,
+      endTime: eventData.endTime,
+      eventName: eventData.name,
       error: false,
       toHome: false
     };
@@ -44,8 +45,13 @@ class AddEvent extends Component {
       this.setState({ error: true });
       return;
     }
-    const id = uuid();
-    this.props.addEvent(date, startTime, endTime, eventName, id);
+    this.props.editEvent(
+      date,
+      startTime,
+      endTime,
+      eventName,
+      this.props.match.params.eventId
+    );
     this.setState({ toHome: true });
   };
   render() {
@@ -57,7 +63,7 @@ class AddEvent extends Component {
         <Header />
         <div style={{ margin: "5%" }}>
           <EventForm
-            title={"Add an event"}
+            title={"Edit an event"}
             date={this.state.date}
             eventName={this.state.eventName}
             startTime={this.state.startTime}
@@ -65,6 +71,7 @@ class AddEvent extends Component {
             error={this.state.error}
             onChange={this.onChange}
             onSubmit={this.onSubmit}
+            disableDateField
           />
         </div>
       </Fragment>
@@ -72,10 +79,12 @@ class AddEvent extends Component {
   }
 }
 
-const mapStateToProps = () => {
-  return {};
+const mapStateToProps = state => {
+  return {
+    selectedDateData: state.cal.eventData[state.cal.selectedDate]
+  };
 };
 export default connect(
   mapStateToProps,
-  { addEvent }
-)(AddEvent);
+  { editEvent }
+)(EditEvent);

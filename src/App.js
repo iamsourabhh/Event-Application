@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import configureStore from "./redux/configureStore";
 import EventApp from "./pages/CalendarEvents/EventApp";
 import AddEvent from "./pages/AddEvent/AddEvent";
+import EditEvent from "./pages/EditEvent/EditEvent";
 
 class App extends Component {
   render() {
@@ -14,6 +15,11 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={EventApp} />
             <Route exact path="/add-event/:date" component={AddEvent} />
+            <Route
+              exact
+              path="/edit-event/:date/:eventId"
+              component={EditEvent}
+            />
           </Switch>
         </BrowserRouter>
       </Provider>

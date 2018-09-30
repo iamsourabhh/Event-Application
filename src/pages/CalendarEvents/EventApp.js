@@ -7,6 +7,10 @@ import "./EventApp.css";
 import CalendarEvents from "./CalendarEvents/CalendarEvents";
 
 const EventApp = ({ date, changeDate, deleteEvent, eventData }) => {
+  const formattedDate = date
+    .split("/")
+    .reverse()
+    .join("-");
   return (
     <React.Fragment>
       <Header />
@@ -17,6 +21,7 @@ const EventApp = ({ date, changeDate, deleteEvent, eventData }) => {
             onEventDelete={deleteEvent}
             onEventEdit
             events={eventData}
+            activeDate={formattedDate}
           />
         </div>
       </div>

@@ -1,7 +1,8 @@
 import {
   CHANGE_MONTH,
   ADD_EVENT,
-  DELETE_EVENT
+  DELETE_EVENT,
+  EDIT_EVENT
 } from "../../redux/actions/actionTypes";
 import { omit } from "lodash";
 
@@ -26,6 +27,23 @@ const EventAppReducer = (state = DEFAULT_STATE, action) => {
         selectedDate: payload.date
       };
     case ADD_EVENT:
+      return {
+        ...state,
+        eventData: {
+          ...state.eventData,
+          [state.selectedDate]: {
+            ...state.eventData[state.selectedDate],
+            [payload.id]: {
+              date: payload.date,
+              startTime: payload.startTime,
+              endTime: payload.endTime,
+              name: payload.eventName,
+              id: payload.id
+            }
+          }
+        }
+      };
+    case EDIT_EVENT:
       return {
         ...state,
         eventData: {

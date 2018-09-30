@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import moment from "moment";
 import Button from "@material-ui/core/Button";
+import moment from "moment";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class EventCard extends Component {
   constructor(props) {
@@ -17,7 +18,8 @@ class EventCard extends Component {
       startTime,
       endTime,
       onDelete,
-      id
+      id,
+      date
     } = this.props;
     const sTime = moment(startTime, "HH:mm").format("hh:mm A");
     const eTime = moment(endTime, "HH:mm").format("hh:mm A");
@@ -70,9 +72,11 @@ class EventCard extends Component {
           </h5>
         </div>
         <div style={{ flex: 0.1, display: "flex" }}>
-          <Button mini size="small" color="primary" variant="">
-            Edit
-          </Button>
+          <Link to={`/edit-event/${date}/${id}`}>
+            <Button mini size="small" color="primary" variant="">
+              Edit
+            </Button>
+          </Link>
           <Button
             onClick={e => {
               onDelete(id);
