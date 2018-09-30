@@ -1,4 +1,4 @@
-import { CHANGE_MONTH } from "../../redux/actions/actionTypes";
+import { CHANGE_MONTH, DELETE_EVENT } from "../../redux/actions/actionTypes";
 import moment from "moment";
 
 export const changeDate = date => {
@@ -7,5 +7,12 @@ export const changeDate = date => {
     type: CHANGE_MONTH,
     // payload: { date }
     payload: { date: formattedDate }
+  };
+};
+export const deleteEvent = id => {
+  return {
+    type: DELETE_EVENT,
+    // payload: { date }
+    payload: { id }
   };
 };

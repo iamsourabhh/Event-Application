@@ -4,7 +4,7 @@ import "./CalendarView.css";
 import { getTimeFromInteger } from "../../../common/helpers";
 import EventCard from "../../../components/EventCard/EventCard";
 
-const CalendarView = ({ events }) => {
+const CalendarView = ({ events, onEventDelete, onEventEdit }) => {
   return (
     <React.Fragment>
       <div className="calendar-view-container">
@@ -24,6 +24,9 @@ const CalendarView = ({ events }) => {
                 eventName={events[id].name}
                 startTime={events[id].startTime}
                 endTime={events[id].endTime}
+                onDelete={onEventDelete}
+                onEdit={onEventEdit}
+                id={id}
               />
             );
           })}

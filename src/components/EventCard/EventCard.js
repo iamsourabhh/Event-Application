@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
+import Button from "@material-ui/core/Button";
 
 class EventCard extends Component {
   constructor(props) {
@@ -10,7 +11,14 @@ class EventCard extends Component {
   }
 
   render() {
-    const { backgroundColor, eventName, startTime, endTime } = this.props;
+    const {
+      backgroundColor,
+      eventName,
+      startTime,
+      endTime,
+      onDelete,
+      id
+    } = this.props;
     const sTime = moment(startTime, "HH:mm").format("hh:mm A");
     const eTime = moment(endTime, "HH:mm").format("hh:mm A");
 
@@ -26,13 +34,8 @@ class EventCard extends Component {
 
     return (
       <div
-        onMouseEnter={() => {
-          this.setState({ isMouseOver: true });
-        }}
-        onMouseLeave={() => {
-          this.setState({ isMouseOver: false });
-        }}
         style={{
+          display: "flex",
           position: "absolute",
           top: topPosition,
           height: cardHeight,
@@ -42,19 +45,46 @@ class EventCard extends Component {
           border: 1,
           borderStyle: "solid",
           borderColor: "#111",
-
           width: "100%",
           overflowY: "scroll",
           paddingTop: 1,
           paddingBottom: 1
         }}
       >
-        <h5 style={{ margin: 0, paddingLeft: 10, paddingTop: 1 }}>
-          {eventName}
-        </h5>
-        <h5 style={{ margin: 0, paddingLeft: 10 }}>
-          {sTime} to {eTime}
-        </h5>
+        <div
+          onMouseEnter={() => {
+            this.setState({ isMouseOver: true });
+          }}
+          onMouseLeave={() => {
+            this.setState({ isMouseOver: false });
+          }}
+          style={{
+            flex: 0.8
+          }}
+        >
+          <h5 style={{ margin: 0, paddingLeft: 10, paddingTop: 1 }}>
+            {eventName}
+          </h5>
+          <h5 style={{ margin: 0, paddingLeft: 10 }}>
+            {sTime} to {eTime}
+          </h5>
+        </div>
+        <div style={{ flex: 0.1, display: "flex" }}>
+          <Button mini size="small" color="primary" variant="">
+            Edit
+          </Button>
+          <Button
+            onClick={e => {
+              onDelete(id);
+            }}
+            mini
+            size="small"
+            color="primary"
+            variant=""
+          >
+            DELETE
+          </Button>
+        </div>
       </div>
     );
   }
