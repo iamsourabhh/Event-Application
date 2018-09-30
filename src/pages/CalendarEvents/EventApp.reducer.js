@@ -1,12 +1,13 @@
 import { CHANGE_MONTH } from "../../redux/actions/actionTypes";
 import { data } from "../../data/data";
+import { normalizeEventData } from "../../common/helpers";
 
 const DEFAULT_STATE = {
   loading: true,
   isError: false,
   todaysDate: new Date().toLocaleDateString(),
   selectedDate: new Date().toLocaleDateString(),
-  eventData: data
+  eventData: normalizeEventData(data)
 };
 
 const EventAppReducer = (state = DEFAULT_STATE, action) => {

@@ -7,7 +7,7 @@ import { changeDate } from "./EventApp.action";
 import "./EventApp.css";
 import CalendarEvents from "./CalendarEvents/CalendarEvents";
 
-const EventApp = ({ date, changeDate }) => {
+const EventApp = ({ date, changeDate, eventData }) => {
   return (
     <React.Fragment>
       <Header />
@@ -23,7 +23,8 @@ const EventApp = ({ date, changeDate }) => {
 
 const mapStateToProps = state => {
   return {
-    date: state.cal.selectedDate
+    date: state.cal.selectedDate,
+    eventData: state.cal.eventData
   };
 };
 export default connect(
