@@ -7,7 +7,6 @@ import "./EventApp.css";
 import CalendarEvents from "./CalendarEvents/CalendarEvents";
 
 const EventApp = ({ date, changeDate, eventData }) => {
-  console.log(eventData);
   return (
     <React.Fragment>
       <Header />
