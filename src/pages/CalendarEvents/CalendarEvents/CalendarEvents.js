@@ -2,14 +2,14 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import { Link } from "react-router-dom";
 
 const CalendarEvents = ({ activeDate, onChangeDate }) => {
-  const dateNumber = new Date(
-    activeDate
-      .split("/")
-      .reverse()
-      .join("-")
-  );
+  const formattedDate = activeDate
+    .split("/")
+    .reverse()
+    .join("-");
+  const dateNumber = new Date(formattedDate);
   return (
     <div style={{ display: "flex" }}>
       <div style={{ flex: 0.1 }}>
@@ -25,9 +25,11 @@ const CalendarEvents = ({ activeDate, onChangeDate }) => {
         <Button color="primary" variant="contained">
           Today
         </Button>
-        <Button style={{ marginLeft: 5 }} color="primary" variant="contained">
-          Add Event
-        </Button>
+        <Link to={`add-event/${formattedDate}`}>
+          <Button style={{ marginLeft: 5 }} color="primary" variant="contained">
+            Add Event
+          </Button>
+        </Link>
 
         <TextField
           onChange={e => {
@@ -36,15 +38,8 @@ const CalendarEvents = ({ activeDate, onChangeDate }) => {
           id="date"
           label="Date"
           type="date"
-          // value={moment(activeDate).format("YYYY-MM-DD")}
-          value={activeDate
-            .split("/")
-            .reverse()
-            .join("-")}
+          value={formattedDate}
           style={{ marginLeft: 35 }}
-          InputLabelProps={{
-            shrink: true
-          }}
         />
         <Button
           color="primary"
