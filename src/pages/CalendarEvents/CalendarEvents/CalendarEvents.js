@@ -3,15 +3,17 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
-const CalendarEvents = ({ activeMonth, onChangeDate }) => {
+const CalendarEvents = ({ activeDate, onChangeDate }) => {
+  const dateNumber = new Date(activeDate);
+
   return (
     <div style={{ display: "flex" }}>
       <div style={{ flex: 0.1 }}>
         <Typography variant="title" color="inherit">
-          {28}
+          {dateNumber.getDate()}
         </Typography>
         <Typography variant="title" color="inherit">
-          Fri
+          {days[dateNumber.getDay()]}
         </Typography>
       </div>
 
@@ -30,8 +32,8 @@ const CalendarEvents = ({ activeMonth, onChangeDate }) => {
           id="date"
           label="Date"
           type="date"
+          value={activeDate}
           style={{ marginLeft: 35 }}
-          defaultValue="2017-05-24"
           InputLabelProps={{
             shrink: true
           }}
@@ -56,3 +58,13 @@ const CalendarEvents = ({ activeMonth, onChangeDate }) => {
 };
 
 export default CalendarEvents;
+
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];

@@ -7,16 +7,12 @@ import { changeDate } from "./EventApp.action";
 import "./EventApp.css";
 import CalendarEvents from "./CalendarEvents/CalendarEvents";
 
-const EventApp = ({ month, changeDate }) => {
+const EventApp = ({ date, changeDate }) => {
   return (
     <React.Fragment>
       <Header />
       <div className="container">
-        <CalendarEvents
-          activeMonth={month}
-          onChangeDate={changeDate}
-          activeYear=""
-        />
+        <CalendarEvents activeDate={date} onChangeDate={changeDate} />
         <div style={{ position: "relative" }}>
           <CalendarView />
         </div>
@@ -27,7 +23,7 @@ const EventApp = ({ month, changeDate }) => {
 
 const mapStateToProps = state => {
   return {
-    month: state.cal.selectedMonth
+    date: state.cal.selectedDate
   };
 };
 export default connect(
