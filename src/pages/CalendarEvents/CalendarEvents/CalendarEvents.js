@@ -4,7 +4,13 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
 
-const CalendarEvents = ({ activeDate, onChangeDate }) => {
+const CalendarEvents = ({
+  activeDate,
+  onChangeDate,
+  nextDate,
+  previousDate,
+  setTodayDate
+}) => {
   const formattedDate = activeDate
     .split("/")
     .reverse()
@@ -22,7 +28,7 @@ const CalendarEvents = ({ activeDate, onChangeDate }) => {
       </div>
 
       <div style={{ flex: 0.9 }}>
-        <Button color="primary" variant="contained">
+        <Button color="primary" variant="contained" onClick={setTodayDate}>
           Today
         </Button>
         <Link to={`add-event/${formattedDate}`}>
@@ -45,6 +51,9 @@ const CalendarEvents = ({ activeDate, onChangeDate }) => {
           color="primary"
           className="navigation-buttons"
           variant="contained"
+          onClick={() => {
+            nextDate(activeDate);
+          }}
         >
           Next
         </Button>
@@ -52,6 +61,9 @@ const CalendarEvents = ({ activeDate, onChangeDate }) => {
           color="primary"
           className="navigation-buttons"
           variant="contained"
+          onClick={() => {
+            previousDate(activeDate);
+          }}
         >
           Previous
         </Button>

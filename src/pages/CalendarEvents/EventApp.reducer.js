@@ -2,9 +2,13 @@ import {
   CHANGE_MONTH,
   ADD_EVENT,
   DELETE_EVENT,
-  EDIT_EVENT
+  EDIT_EVENT,
+  NEXT_DATE,
+  PREVIOUS_DATE,
+  SET_TODAY_DATE
 } from "../../redux/actions/actionTypes";
 import { omit } from "lodash";
+import moment from "moment";
 
 import { data } from "../../data/data";
 import { normalizeEventData } from "../../common/helpers";
@@ -71,6 +75,22 @@ const EventAppReducer = (state = DEFAULT_STATE, action) => {
           )
         }
       };
+    case NEXT_DATE:
+      return {
+        ...state,
+        selectedDate: payload.date
+      };
+    case PREVIOUS_DATE:
+      return {
+        ...state,
+        selectedDate: payload.date
+      };
+    case SET_TODAY_DATE:
+      return {
+        ...state,
+        selectedDate: state.todaysDate
+      };
+
     default:
       return state;
   }

@@ -3,7 +3,6 @@ import Header from "../../components/Header";
 import { connect } from "react-redux";
 import { editEvent } from "./EditEvent.action";
 import { Redirect } from "react-router-dom";
-import uuid from "uuid/v4";
 import EventForm from "../../components/EventForm/EventForm";
 
 class EditEvent extends Component {
