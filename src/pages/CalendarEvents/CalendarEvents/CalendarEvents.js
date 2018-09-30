@@ -2,10 +2,11 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import moment from "moment";
 
 const CalendarEvents = ({ activeDate, onChangeDate }) => {
   const dateNumber = new Date(activeDate);
-
+  console.log(activeDate);
   return (
     <div style={{ display: "flex" }}>
       <div style={{ flex: 0.1 }}>
@@ -32,7 +33,11 @@ const CalendarEvents = ({ activeDate, onChangeDate }) => {
           id="date"
           label="Date"
           type="date"
-          value={activeDate}
+          // value={moment(activeDate).format("YYYY-MM-DD")}
+          value={activeDate
+            .split("/")
+            .reverse()
+            .join("-")}
           style={{ marginLeft: 35 }}
           InputLabelProps={{
             shrink: true
