@@ -71,6 +71,7 @@ class EditEvent extends Component {
             error={this.state.error}
             onChange={this.onChange}
             onSubmit={this.onSubmit}
+            buttonText={"Edit Event"}
             disableDateField
           />
         </div>

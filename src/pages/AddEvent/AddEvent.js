@@ -65,6 +65,7 @@ class AddEvent extends Component {
             endTime={this.state.endTime}
             error={this.state.error}
             onChange={this.onChange}
+            buttonText={"Add Event"}
             onSubmit={this.onSubmit}
           />
         </div>

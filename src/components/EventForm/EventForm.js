@@ -6,6 +6,7 @@ const EventForm = ({
   date,
   eventName,
   startTime,
+  buttonText,
   endTime,
   error,
   onChange,
@@ -73,7 +74,7 @@ const EventForm = ({
       <br />
 
       <Button onClick={onSubmit} color="primary" variant="contained">
-        Add Event
+        {buttonText}
       </Button>
       <Button
         onClick={() => {
