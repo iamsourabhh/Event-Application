@@ -57,6 +57,7 @@ class AddEvent extends Component {
         <Header />
         <div style={{ margin: "5%" }}>
           <EventForm
+            history={this.props.history}
             title={"Add an event"}
             date={this.state.date}
             eventName={this.state.eventName}

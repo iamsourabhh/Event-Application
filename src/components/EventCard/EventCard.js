@@ -77,6 +77,11 @@ class EventCard extends Component {
               Edit
             </Button>
           </Link>
+          <Link to={`/view-event/${date}/${id}`}>
+            <Button mini size="small" color="primary" variant="">
+              VIEW
+            </Button>
+          </Link>
           <Button
             onClick={e => {
               onDelete(id);

@@ -9,6 +9,7 @@ const EventForm = ({
   endTime,
   error,
   onChange,
+  history,
   onSubmit,
   disableDateField,
   title
@@ -73,6 +74,15 @@ const EventForm = ({
 
       <Button onClick={onSubmit} color="primary" variant="contained">
         Add Event
+      </Button>
+      <Button
+        onClick={() => {
+          history.goBack();
+        }}
+        color="primary"
+        variant=""
+      >
+        Cancel
       </Button>
     </Fragment>
   );

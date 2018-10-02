@@ -1,0 +1,45 @@
+.container {
+  margin: 5%;
+}
+.viewTable {
+  width: 50%;
+  margin-left: 25%;
+  /* border-color: #d3d3d3;
+  border-width: 1px;
+  border-style: solid; */
+}
+.viewTable tbody {
+  padding: 10px;
+}
+.viewTable thead td {
+  padding: 10px;
+  border-color: #d3d3d3;
+  border-width: 1px;
+  border-style: solid;
+  text-align: center;
+  font-weight: 800;
+}
+.viewTable tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.viewTable tbody tr td {
+  padding: 15px;
+  border-color: #d3d3d3;
+  border-width: 1px;
+  border-style: solid;
+  margin: 0;
+  text-align: left;
+}
+
+.button-container {
+  margin-left: 25%;
+}
+
+.viewEventButton {
+  margin-left: 10px !important;
+}
+
+a {
+  text-decoration: none;
+}

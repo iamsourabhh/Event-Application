@@ -6,6 +6,7 @@ import configureStore from "./redux/configureStore";
 import EventApp from "./pages/CalendarEvents/EventApp";
 import AddEvent from "./pages/AddEvent/AddEvent";
 import EditEvent from "./pages/EditEvent/EditEvent";
+import ViewEvent from "./pages/ViewEvent/ViewEvent";
 
 class App extends Component {
   render() {
@@ -15,6 +16,11 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={EventApp} />
             <Route exact path="/add-event/:date" component={AddEvent} />
+            <Route
+              exact
+              path="/view-event/:date/:eventId"
+              component={ViewEvent}
+            />
             <Route
               exact
               path="/edit-event/:date/:eventId"

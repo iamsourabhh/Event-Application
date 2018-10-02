@@ -62,6 +62,7 @@ class EditEvent extends Component {
         <Header />
         <div style={{ margin: "5%" }}>
           <EventForm
+            history={this.props.history}
             title={"Edit an event"}
             date={this.state.date}
             eventName={this.state.eventName}
