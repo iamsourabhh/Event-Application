@@ -11,6 +11,7 @@ import {
 } from "./EventApp.action";
 import "./EventApp.css";
 import CalendarEvents from "./CalendarEvents/CalendarEvents";
+import { checkConflicts } from "../../common/helpers";
 
 const EventApp = ({
   date,
@@ -21,6 +22,7 @@ const EventApp = ({
   previousDate,
   setTodayDate
 }) => {
+  const events = checkConflicts(eventData);
   const formattedDate = date
     .split("/")
     .reverse()

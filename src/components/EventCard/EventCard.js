@@ -19,7 +19,9 @@ class EventCard extends Component {
       endTime,
       onDelete,
       id,
-      date
+      date,
+      level,
+      left
     } = this.props;
     const sTime = moment(startTime, "HH:mm").format("hh:mm A");
     const eTime = moment(endTime, "HH:mm").format("hh:mm A");
@@ -41,25 +43,29 @@ class EventCard extends Component {
           position: "absolute",
           top: topPosition,
           height: cardHeight,
-          zIndex: this.state.isMouseOver ? 44 : 4,
+          zIndex: this.state.isMouseOver
+            ? 40000
+            : (1 / (endHour - startHour)) * 10,
           // opacity: this.state.isMouseOver ? 0.8 : 1,
           backgroundColor,
           border: 1,
+          left: `${100 - 100 * (left / level)}%`,
           borderStyle: "solid",
           borderColor: "#111",
-          width: "100%",
+          width: `${100 * (1 / level)}%`,
           overflowY: "scroll",
           paddingTop: 1,
           paddingBottom: 1
         }}
+        onMouseEnter={() => {
+          this.setState({ isMouseOver: true });
+        }}
+        onMouseLeave={() => {
+          console.log("mouselleft");
+          this.setState({ isMouseOver: false });
+        }}
       >
         <div
-          onMouseEnter={() => {
-            this.setState({ isMouseOver: true });
-          }}
-          onMouseLeave={() => {
-            this.setState({ isMouseOver: false });
-          }}
           style={{
             flex: 0.8
           }}

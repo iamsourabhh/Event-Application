@@ -42,7 +42,8 @@ const EventAppReducer = (state = DEFAULT_STATE, action) => {
               startTime: payload.startTime,
               endTime: payload.endTime,
               name: payload.eventName,
-              id: payload.id
+              id: payload.id,
+              level: 1
             }
           }
         }

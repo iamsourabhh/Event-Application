@@ -22,6 +22,8 @@ const CalendarView = ({ events, onEventDelete, onEventEdit, activeDate }) => {
                 key={id}
                 backgroundColor={"#d3d3d3"}
                 eventName={events[id].name}
+                level={events[id].level}
+                left={events[id].left}
                 startTime={events[id].startTime}
                 endTime={events[id].endTime}
                 onDelete={onEventDelete}
